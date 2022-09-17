@@ -32,16 +32,31 @@ fn regex_match(input_string: &str) -> String {
 
 
 fn mutable_variable() -> String {
-    let mut my_var = "teste";
-    my_var = "test2";
+    let mut _my_var = "teste";
+    _my_var = "test2";
 
-    format!("mutable variable {}", my_var)
+    format!("mutable variable {}", _my_var)
 }
 
+
+fn ownership() {
+
+    let string1 = "string1".to_string();
+    let string2 = &string1;
+    println!("{}", string2);
+    consume(&string1);
+    println!("{}", string1);
+}
+
+
+fn consume(_var1: &String){
+}
 
 fn main() {
     println!("{}", regex_match("2014-01-01"));
     println!("{}", destructuring());
     println!("{}", struct_say_hi());
     println!("{}", mutable_variable());
+
+    ownership();
 }
