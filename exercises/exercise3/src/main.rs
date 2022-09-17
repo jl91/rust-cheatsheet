@@ -1,8 +1,4 @@
-use exercise3::print_difference;
-use exercise3::print_array;
-use exercise3::ding;
-use exercise3::on_off;
-use exercise3::print_distance;
+use exercise3::{print_difference, print_array, ding, on_off, print_distance};
 
 fn main() {
     let coords: (f32, f32) = (6.3_f32, 15.0_f32);
