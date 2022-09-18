@@ -62,17 +62,25 @@ fn main() {
         coord.print_description();
         let distance = coord.distance_from_center();
 
-        let mut properly_shot = if distance < 1.0 {
-            Shot::Bullseye
-        } else if distance >= 1.0 && distance < 5.0 {
-            Shot::Hit(distance)
-        } else {
-            Shot::Miss
+        let mut properly_shot = match distance {
+            x if x < 1.0 => Shot::Bullseye,
+            x if x >= 1.0 && x < 5.0 => Shot::Hit(x),
+            _ => Shot::Miss
         };
 
-        shots.append(&mut vec![properly_shot]);
-    }
+        // // Another way to do that
+        // let mut properly_shot = if distance < 1.0 {
+        //     Shot::Bullseye
+        // } else if distance >= 1.0 && distance < 5.0 {
+        //     Shot::Hit(distance)
+        // } else {
+        //     Shot::Miss
+        // };
 
+        shots.push(properly_shot);
+        // Another way to do that
+        // shots.append(&mut vec![properly_shot]);
+    }
 
     let mut total = 0;
 
